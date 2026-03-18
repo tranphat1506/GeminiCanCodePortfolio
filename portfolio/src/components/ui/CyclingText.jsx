@@ -1,8 +1,13 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../../context/LanguageContext';
 
 const CyclingText = () => {
-  const words = ["DIGITAL SYSTEMS", "AI APPLICATIONS", "SCALABLE BACKENDS", "DISTRIBUTED CORES", "AUTOMATION ENGINES"];
+  const { lang } = useLanguage();
+  const wordsEN = ["WEB APPLICATIONS", "MOBILE SOLUTIONS", "AI INTEGRATIONS", "SCALABLE BACKENDS", "CRM & ERP SYSTEMS"];
+  const wordsVI = ["ỨNG DỤNG WEB", "GIẢI PHÁP MOBILE", "TÍCH HỢP AI", "SCALABLE BACKENDS", "HỆ THỐNG CRM & ERP"];
+  
+  const words = lang === 'vi' ? wordsVI : wordsEN;
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -13,7 +18,7 @@ const CyclingText = () => {
   }, []);
 
   return (
-    <div className="relative h-[1.1em] md:h-[0.85em] min-w-full md:min-w-[800px]">
+    <div className="relative h-[1.3em] min-w-full md:min-w-[800px]">
       <AnimatePresence mode="wait">
         <motion.span
           key={words[index]}

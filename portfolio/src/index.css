@@ -172,10 +172,23 @@
     @apply border-white/10;
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    scroll-snap-stop: always;
+  }
+
   body {
     @apply bg-black text-white selection:bg-neon-green selection:text-black;
     font-family: var(--font-sans);
     overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+  }
+
+  body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
   }
 
   h1,
@@ -221,6 +234,10 @@
     @apply bg-clip-text text-transparent bg-linear-to-r from-neon-green to-white;
   }
 
+  .text-glow-neon {
+    text-shadow: 0 0 20px rgba(0, 233, 100, 0.4), 0 0 40px rgba(0, 233, 100, 0.1);
+  }
+
   .glass-card {
     @apply bg-white/[0.03] border border-white/[0.08] backdrop-blur-md;
   }
@@ -261,4 +278,18 @@
 ::selection {
   background: var(--color-neon-green);
   color: black;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-neon-green);
+  border-radius: 10px;
 }
