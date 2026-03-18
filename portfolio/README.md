@@ -1,73 +1,74 @@
-# React + TypeScript + Vite
+# 💎 Gemini CanCode - Premium Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sophisticated, high-performance personal portfolio built with **React**, **Vite**, and **Framer Motion**. Featuring a cinematic "frame-by-frame" nested scroll snapping experience and full multilingual support.
 
-Currently, two official plugins are available:
+## ✨ Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **🎞️ Cinematic Nested Snapping**: A unique "Frame-by-Frame" scrolling experience that guides users through detailed sub-pages (Projects, Skills, Experience) within the main navigation flow.
+- **🌍 Multilingual Support**: Seamless transition between **English** and **Vietnamese** with centralized state management.
+- **🎨 Premium UI/UX**:
+    - High-end Glassmorphism effects.
+    - Custom **ProjectImage** component with robust CSS-fallback logic.
+    - Sleeker **Navbar** with intelligent scroll-intent detection (Wheel/Touch).
+    - Consistent branding using the **Gilroy** font family.
+- **🚀 Advanced Animations**: Smooth entrance animations, cycling text, floating elements, and interactive tilt cards powered by Framer Motion.
+- **📱 Responsive & Optimized**: Fully responsive layout optimized for all devices, from mobile to ultra-wide displays.
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Framework**: [React 19](https://react.dev/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **State Management**: React Context API (for Localization)
 
-## Expanding the ESLint configuration
+## 📁 Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+src/
+├── components/         # UI sections (Hero, Work, Experience, etc.)
+│   └── ui/             # Reusable UI primitives (ProjectImage, TiltCard)
+├── context/            # Global Context (LanguageProvider)
+├── data/               # Project and personal data (projects.js)
+├── utils/              # Animations, translations, and helper functions
+├── App.jsx             # Main application orchestrator
+└── index.css           # Global styles and scroll-snap configurations
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- [Node.js](https://nodejs.org/) (Latest LTS recommended)
+- [npm](https://www.npmjs.com/)
+
+### Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/tranphat1506/PersonalPortfolio.git
+   cd PersonalPortfolio/portfolio
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**:
+   ```bash
+   npm run dev
+   ```
+
+### Building for Production
+
+To create an optimized production build:
+```bash
+npm run build
 ```
+
+## 📄 License
+
+Designed and Developed by **Lê Châu Trần Phát (GeminiCanCode)**.
+© 2026 All Rights Reserved.
