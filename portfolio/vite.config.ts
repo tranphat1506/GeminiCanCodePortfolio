@@ -7,8 +7,8 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   base: './', // Using relative paths for root or subdir deployment
   build: {
-    outDir: '../dist', // Output to a 'dist' folder in the root of the repository
-    emptyOutDir: true, // safe to empty since it's a dedicated dist folder
+    outDir: '../docs', // Output to a 'docs' folder for GitHub Pages compatibility
+    emptyOutDir: true, // safe to empty since it's a dedicated docs folder
     rollupOptions: {
       output: {
         // Ensuring assets are cleanly organized

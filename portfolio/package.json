@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "deploy": "npm run build && touch ../dist/.nojekyll",
+    "deploy": "npm run build && touch ../docs/.nojekyll",
     "lint": "eslint .",
     "preview": "vite preview"
   },

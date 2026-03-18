@@ -22,17 +22,18 @@ npm run dev
    ```bash
    npm run deploy
    ```
-   This will build the project and place the production files in the `/dist` directory at the root.
+   This will build the project and place the production files in the `/docs` directory at the root.
 
 2. **GitHub Settings**:
    - Go to your Repository **Settings** > **Pages**.
-   - Under **Build and deployment** > **Branch**, select `main` (or your primary branch) and folder **/dist**.
+   - Under **Build and deployment** > **Branch**, select `main` (or your primary branch).
+   - In the dropdown below the branch, select **/docs** (instead of /(root)).
    - Click **Save**.
 
 ## 📁 Project Structure
 
 - `portfolio/`: Source code and development environment.
-- `dist/`: Production files generated after build for GitHub Pages.
+- `docs/`: Production files generated after build for GitHub Pages compatibility.
 
 ## 📄 License
 
