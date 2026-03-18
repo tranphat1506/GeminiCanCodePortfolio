@@ -231,7 +231,7 @@ export const personalInfo = {
   phone: '+84 898 486 184',
   status: 'Student Year 4 (HIU)',
   statusVi: 'Sinh viên năm 4 (HIU)',
-  profileImage: '/images/profile_image.png',
+  profileImage: './images/profile_image.png',
   skills: {
     programming: ['JavaScript (ES6+)', 'TypeScript', 'C#'],
     frontend: ['ReactJS', 'React Native', 'Next.js', 'HTML5', 'CSS3', 'Tailwind CSS', 'Material UI', 'Native Base'],
