@@ -15,13 +15,15 @@ const About = () => {
             className="md:w-1/2 relative"
           >
             <div className="absolute inset-0 bg-neon-green/20 blur-[120px] rounded-full -m-20" />
-            <TiltCard className="relative z-10 aspect-square rounded-3xl overflow-hidden border border-white/10 group">
+            <TiltCard className="relative z-10 aspect-square rounded-3xl overflow-hidden border border-white/10 group bg-black/40">
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-60" />
+              
               <img
                 src="/images/profile_image.png"
                 alt="Profile"
-                className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 scale-105"
+                className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700"
               />
+
               <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-2 h-2 bg-neon-green rounded-full animate-pulse" />

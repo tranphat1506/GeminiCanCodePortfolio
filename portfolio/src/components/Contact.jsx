@@ -4,7 +4,7 @@ import { personalInfo } from '../data/projects';
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-40 bg-neon-green text-black overflow-hidden relative" style={{ contain: 'paint' }}>
+    <section id="contact" className="py-20 md:py-40 bg-neon-green text-black overflow-hidden relative flex-grow flex items-center" style={{ contain: 'paint' }}>
       <div className="absolute top-0 left-0 text-[300px] leading-none select-none pointer-events-none font-display opacity-[0.02] italic -mt-20">
         GEMINI
       </div>

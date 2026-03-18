@@ -23,7 +23,7 @@ function App() {
       <LazyMotion features={domAnimation}>
         <main>
           <Hero />
-          
+
           <About />
 
           <Experience />
