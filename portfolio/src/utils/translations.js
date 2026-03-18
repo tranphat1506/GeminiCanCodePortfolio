@@ -42,6 +42,7 @@ export const translations = {
       period: {
         hiu: "Sep, 2022 - Apr, 2026",
         senviet: "Sep, 2025 - Nov, 2025",
+        freelance: "2022 - 2026",
       },
     },
     work: {
@@ -106,6 +107,7 @@ export const translations = {
       period: {
         hiu: "Th9, 2022 - Th4, 2026",
         senviet: "Th9, 2025 - Th11, 2025",
+        freelance: "2022 - 2026",
       },
     },
     work: {

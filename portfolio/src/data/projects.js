@@ -149,6 +149,29 @@ export const projects = [
 
 export const education = [
   {
+    id: 'freelance',
+    school: 'FULLSTACK FREELANCER',
+    schoolVi: 'FULLSTACK FREELANCER (TỰ DO)',
+    degree: 'Web & AI Model Developer',
+    degreeVi: 'Phát triển Web & Mô hình AI',
+    major: 'Custom Web Design & AI Implementation',
+    majorVi: 'Thiết kế Web & Triển khai AI theo yêu cầu',
+    period: '2022 - 2026',
+    gpa: null,
+    achievements: [
+      'Successfully designed and implemented custom web solutions for diverse clients using React, .NET, and Node.js.',
+      'Developed and integrated AI models (LLMs, RAG) into business workflows to automate tasks and improve efficiency.',
+      'Designed architectural blueprints and technical roadmaps for small-to-medium scale digital products.',
+      'Maintained consistent client satisfaction through high-quality code delivery and technical consultation.'
+    ],
+    achievementsVi: [
+      'Thiết kế và triển khai thành công các giải pháp web tùy chỉnh cho nhiều khách hàng khác nhau sử dụng React, .NET và Node.js.',
+      'Phát triển và tích hợp các mô hình AI (LLMs, RAG) vào quy trình kinh doanh để tự động hóa tác vụ và tăng hiệu quả.',
+      'Thiết kế bản vẽ kiến trúc và lộ trình kỹ thuật cho các sản phẩm kỹ thuật số quy mô vừa và nhỏ.',
+      'Duy trì sự hài lòng của khách hàng thông qua việc bàn giao code chất lượng cao và tư vấn kỹ thuật chuyên sâu.'
+    ]
+  },
+  {
     id: 'senviet',
     school: 'SEN VIET SOFTWARE JOINT STOCK COMPANY',
     schoolVi: 'CÔNG TY CỔ PHẦN PHẦN MỀM SEN VIỆT',
