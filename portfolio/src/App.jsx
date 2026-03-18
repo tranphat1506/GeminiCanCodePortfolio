@@ -1,5 +1,12 @@
 import React from 'react';
-import { LazyMotion, domAnimation, m } from 'framer-motion';
+import { LazyMotion, domAnimation } from 'framer-motion';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Mousewheel, Keyboard, Parallax } from 'swiper/modules';
+
+// Swiper styles
+import 'swiper/css';
+import 'swiper/css/mousewheel';
+import 'swiper/css/parallax';
 
 // Components
 import Navbar from './components/Navbar';
@@ -9,42 +16,78 @@ import Skills from './components/Skills';
 import TechStack from './components/TechStack';
 import Experience from './components/Experience';
 import Work from './components/Work';
-import ProjectCard from './components/ProjectCard';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-// Data
-import { projects } from './data/projects';
-import { containerVariants } from './utils/animations';
-import { LanguageProvider, useLanguage } from './context/LanguageContext';
+// Context
+import { LanguageProvider } from './context/LanguageContext';
+import { SwiperProvider, useMainSwiper } from './context/SwiperContext';
 
-function App() {
-  const { t } = useLanguage();
-
+function AppContent() {
+  const { setMainSwiper } = useMainSwiper();
+  
   return (
-    <div className="bg-black text-white selection:bg-neon-green selection:text-black">
+    <div className="bg-black text-white selection:bg-neon-green selection:text-black h-screen overflow-hidden">
       <Navbar />
 
       <LazyMotion features={domAnimation}>
-        <main>
-          <Hero />
+        <Swiper
+          direction="vertical"
+          modules={[Mousewheel, Keyboard, Parallax]}
+          mousewheel={{ 
+            releaseOnEdges: true,
+            sensitivity: 2,
+            thresholdDelta: 20,
+            thresholdTime: 200
+          }}
+          keyboard={{ enabled: true }}
+          speed={600}
+          parallax={true}
+          onSwiper={setMainSwiper}
+          className="h-full w-full"
+        >
+          {/* Hero Section */}
+          <SwiperSlide>
+            <Hero />
+          </SwiperSlide>
 
-          <About />
+          {/* About Section */}
+          <SwiperSlide>
+            <About />
+          </SwiperSlide>
 
-          <Skills />
+          {/* Skills Section */}
+          <SwiperSlide>
+            <Skills />
+          </SwiperSlide>
 
-          <TechStack />
+          {/* Tech Stack Section */}
+          <SwiperSlide>
+            <TechStack />
+          </SwiperSlide>
 
-          <Experience />
+          {/* Experience Section */}
+          <SwiperSlide>
+            <Experience />
+          </SwiperSlide>
 
-          <Work />
+          {/* Work Section (Hiding as per previous request, but technically ready) */}
+          {/* <SwiperSlide>
+            <Work />
+          </SwiperSlide> */}
 
-          <Contact />
+          {/* Contact Section */}
+          <SwiperSlide>
+            <Contact />
+          </SwiperSlide>
 
-          <section className="h-screen snap-start flex items-center bg-black">
-            <Footer />
-          </section>
-        </main>
+          {/* Footer Slide */}
+          <SwiperSlide>
+            <section className="h-screen flex items-center bg-black">
+              <Footer />
+            </section>
+          </SwiperSlide>
+        </Swiper>
       </LazyMotion>
     </div>
   );
@@ -53,7 +96,9 @@ function App() {
 function MainApp() {
   return (
     <LanguageProvider>
-      <App />
+      <SwiperProvider>
+        <AppContent />
+      </SwiperProvider>
     </LanguageProvider>
   );
 }

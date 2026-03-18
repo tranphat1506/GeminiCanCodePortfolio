@@ -3,40 +3,53 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Github } from 'lucide-react';
 import { personalInfo } from '../data/projects';
 import { useLanguage } from '../context/LanguageContext';
+import { useMainSwiper } from '../context/SwiperContext';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { lang, t, switchLanguage } = useLanguage();
+  const { mainSwiper } = useMainSwiper();
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const heroHeight = window.innerHeight;
+    if (!mainSwiper) return;
 
-      // Navbar only visible when in Hero section (first 100vh)
-      // We use a small threshold (e.g., 20% of hero height) to trigger the hide
-      setIsVisible(currentScrollY < heroHeight * 0.2);
-      setIsScrolled(currentScrollY > 50);
+    const handleSlideChange = () => {
+      // Navbar only visible when in Hero section (index 0)
+      setIsVisible(mainSwiper.activeIndex === 0);
+      setIsScrolled(mainSwiper.activeIndex > 0);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    mainSwiper.on('slideChange', handleSlideChange);
+    return () => {
+      mainSwiper.off('slideChange', handleSlideChange);
+    };
+  }, [mainSwiper]);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (mainSwiper) {
+      mainSwiper.slideTo(0);
+    }
   };
 
+  // Map nav items to Swiper indices
+  // 0: Hero, 1: About, 2: Skills, 3: TechStack, 4: Experience, 5: Contact
   const navItems = [
-    { name: t.nav.about, href: "#about" },
-    { name: t.nav.skills, href: "#skills" },
-    { name: t.nav.stack, href: "#stack" },
-    { name: t.nav.experience, href: "#experience" },
-    { name: t.nav.work, href: "#work" },
-    { name: t.nav.contact, href: "#contact" },
+    { name: t.nav.about, index: 1 },
+    { name: t.nav.skills, index: 2 },
+    { name: t.nav.stack, index: 3 },
+    { name: t.nav.experience, index: 4 },
+    // { name: t.nav.work, index: 5 }, // Work currently hidden
+    { name: t.nav.contact, index: 5 },
   ];
+
+  const handleNavClick = (index) => {
+    if (mainSwiper) {
+      mainSwiper.slideTo(index);
+    }
+    setIsMenuOpen(false);
+  };
 
   return (
     <motion.nav
@@ -63,14 +76,14 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-10">
           <div className="flex items-center gap-8">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item.name}
-                href={item.href}
+                onClick={() => handleNavClick(item.index)}
                 className="relative text-[11px] font-display font-light text-gray-400 hover:text-white transition-colors tracking-[0.2em] group/item uppercase"
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-neon-green transition-all duration-300 group-hover/item:w-full" />
-              </a>
+              </button>
             ))}
           </div>
 
@@ -130,17 +143,13 @@ const Navbar = () => {
           >
             <div className="flex flex-col p-10 gap-8 text-center">
               {navItems.map((item, idx) => (
-                <motion.a
+                <button
                   key={item.name}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.05 }}
-                  href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => handleNavClick(item.index)}
                   className="text-lg font-display font-light text-gray-400 hover:text-neon-green transition-colors tracking-widest uppercase italic"
                 >
                   {item.name}
-                </motion.a>
+                </button>
               ))}
               <div className="flex justify-center gap-8 pt-8 border-t border-white/5">
                 <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-neon-green">

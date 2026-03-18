@@ -2,14 +2,22 @@ import { motion } from 'framer-motion';
 import { personalInfo } from '../data/projects';
 import FloatingElement from './ui/FloatingElement';
 import CyclingText from './ui/CyclingText';
-import { containerVariants, itemVariants } from '../utils/animations';
+import { itemVariants } from '../utils/animations';
 import { useLanguage } from '../context/LanguageContext';
+import { useMainSwiper } from '../context/SwiperContext';
 
 const Hero = () => {
   const { lang, t } = useLanguage();
+  const { mainSwiper } = useMainSwiper();
+
+  const handleSlideTo = (index) => {
+    if (mainSwiper) {
+      mainSwiper.slideTo(index);
+    }
+  };
 
   return (
-    <section id="hero" className="h-screen snap-start flex items-center justify-center relative overflow-hidden bg-black md:pb-20" style={{ contain: 'paint' }}>
+    <section id="hero" className="h-screen flex items-center justify-center relative overflow-hidden bg-black md:pb-20" style={{ contain: 'paint' }}>
       <FloatingElement className="top-1/4 left-1/4 w-48 h-48 md:w-96 md:h-96 bg-neon-green/10" delay={0} />
       <FloatingElement className="bottom-1/4 right-1/4 w-64 h-64 md:w-[500px] md:h-[500px] bg-blue-500/5" delay={2} />
 
@@ -48,27 +56,30 @@ const Hero = () => {
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-4 md:gap-6"
           >
-            <a
-              href="#work"
-              className="px-6 md:px-8 py-3 md:py-4 bg-neon-green text-black font-bold uppercase tracking-widest text-[10px] md:text-xs hover:bg-white transition-all text-center"
+            <button
+              onClick={() => handleSlideTo(4)} // Redirecting Work to Experience (index 4)
+              className="px-6 md:px-8 py-3 md:py-4 bg-neon-green text-black font-bold uppercase tracking-widest text-[10px] md:text-xs hover:bg-white transition-all text-center cursor-pointer"
             >
               {t.hero.view_work}
-            </a>
-            <a
-              href="#contact"
-              className="px-6 md:px-8 py-3 md:py-4 border border-white/20 text-white font-bold uppercase tracking-widest text-[10px] md:text-xs hover:border-neon-green hover:text-neon-green transition-all text-center"
+            </button>
+            <button
+              onClick={() => handleSlideTo(5)} // Contact at index 5
+              className="px-6 md:px-8 py-3 md:py-4 border border-white/20 text-white font-bold uppercase tracking-widest text-[10px] md:text-xs hover:border-neon-green hover:text-neon-green transition-all text-center cursor-pointer"
             >
               {t.hero.contact}
-            </a>
+            </button>
           </motion.div>
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-4">
-        <span className="text-[10px] uppercase tracking-[0.3em] text-gray-600 rotate-90 mb-8 whitespace-nowrap font-display font-bold">
+      <div 
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-4 cursor-pointer group"
+        onClick={() => handleSlideTo(1)}
+      >
+        <span className="text-[10px] uppercase tracking-[0.3em] text-gray-600 rotate-90 mb-8 whitespace-nowrap font-display font-bold group-hover:text-neon-green transition-colors">
           {t.hero.scroll}
         </span>
-        <div className="w-[1px] h-20 bg-linear-to-b from-neon-green/50 to-transparent" />
+        <div className="w-[1px] h-20 bg-linear-to-b from-neon-green/50 to-transparent group-hover:h-24 transition-all duration-500" />
       </div>
     </section>
   );

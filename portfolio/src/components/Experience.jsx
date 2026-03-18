@@ -1,65 +1,67 @@
-import { useRef, useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Mousewheel } from 'swiper/modules';
+
+// Swiper styles
+import 'swiper/css';
+
 import { education } from '../data/projects';
 import { useLanguage } from '../context/LanguageContext';
 
 const Experience = () => {
   const { lang, t } = useLanguage();
-  const containerRef = useRef(null);
+  const [swiperInstance, setSwiperInstance] = useState(null);
   const [currentPage, setCurrentPage] = useState(0);
 
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const handleScroll = () => {
-      const pageHeight = container.clientHeight;
-      const newPage = Math.round(container.scrollTop / pageHeight);
-      setCurrentPage(newPage);
-    };
-
-    container.addEventListener('scroll', handleScroll);
-    return () => container.removeEventListener('scroll', handleScroll);
-  }, []);
+  const handleSlideChange = (swiper) => {
+    setCurrentPage(swiper.activeIndex);
+  };
 
   const scrollToPage = (index) => {
-    const container = containerRef.current;
-    if (container) {
-      container.scrollTo({
-        top: index * container.clientHeight,
-        behavior: 'smooth'
-      });
+    if (swiperInstance) {
+      swiperInstance.slideTo(index);
     }
   };
 
   return (
-    <section id="experience" className="h-screen snap-start bg-[#050505] relative overflow-hidden">
-      {/* Internal Snap Container */}
-      <div 
-        ref={containerRef}
-        className="h-full w-full overflow-y-auto snap-y snap-mandatory custom-scrollbar scroll-smooth"
-        style={{ overscrollBehaviorY: 'auto' }}
+    <section id="experience" className="h-screen bg-[#050505] relative overflow-hidden">
+      <Swiper
+        direction="vertical"
+        nested={true}
+        modules={[Mousewheel]}
+        mousewheel={{ 
+          releaseOnEdges: true,
+          sensitivity: 2,
+          thresholdDelta: 20
+        }}
+        speed={600}
+        onSwiper={setSwiperInstance}
+        onSlideChange={handleSlideChange}
+        className="h-full w-full"
       >
         {education.map((item, index) => (
-          <div key={item.id} className="h-full w-full snap-start flex flex-col items-center justify-center p-6 md:p-20 relative">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="max-w-4xl w-full"
-            >
-              {index === 0 && (
-                <h2 className="text-4xl md:text-7xl font-display uppercase italic mb-12 leading-tight">
-                  <span className="text-white">{t.experience.title.split(' ')[0]}</span>{' '}
-                  <span className="text-neon-green text-glow-neon">{t.experience.title.split(' ').slice(1).join(' ')}</span>
-                </h2>
-              )}
-              
-              <ExperienceItem item={item} lang={lang} t={t} />
-            </motion.div>
-          </div>
+          <SwiperSlide key={item.id}>
+            <div className="h-full w-full flex flex-col items-center justify-center p-6 md:p-20 relative">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="max-w-4xl w-full"
+              >
+                {index === 0 && (
+                  <h2 className="text-4xl md:text-7xl font-display uppercase italic mb-12 leading-tight">
+                    <span className="text-white">{t.experience.title.split(' ')[0]}</span>{' '}
+                    <span className="text-neon-green text-glow-neon">{t.experience.title.split(' ').slice(1).join(' ')}</span>
+                  </h2>
+                )}
+                
+                <ExperienceItem item={item} lang={lang} t={t} />
+              </motion.div>
+            </div>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
 
       {/* Internal Pagination Bullets */}
       <div className="absolute right-10 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-4">

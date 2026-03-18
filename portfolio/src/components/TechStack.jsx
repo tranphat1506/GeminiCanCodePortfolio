@@ -1,12 +1,18 @@
-import { useRef, useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Mousewheel } from 'swiper/modules';
+
+// Swiper styles
+import 'swiper/css';
+
 import TiltCard from './ui/TiltCard';
 import { containerVariants, itemVariants } from '../utils/animations';
 import { useLanguage } from '../context/LanguageContext';
 
 const TechStack = () => {
   const { t } = useLanguage();
-  const containerRef = useRef(null);
+  const [swiperInstance, setSwiperInstance] = useState(null);
   const [currentPage, setCurrentPage] = useState(0);
 
   const techs = [
@@ -41,80 +47,77 @@ const TechStack = () => {
     techs.slice(12)
   ];
 
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const handleScroll = () => {
-      const pageHeight = container.clientHeight;
-      const newPage = Math.round(container.scrollTop / pageHeight);
-      setCurrentPage(newPage);
-    };
-
-    container.addEventListener('scroll', handleScroll);
-    return () => container.removeEventListener('scroll', handleScroll);
-  }, []);
+  const handleSlideChange = (swiper) => {
+    setCurrentPage(swiper.activeIndex);
+  };
 
   const scrollToPage = (index) => {
-    const container = containerRef.current;
-    if (container) {
-      container.scrollTo({
-        top: index * container.clientHeight,
-        behavior: 'smooth'
-      });
+    if (swiperInstance) {
+      swiperInstance.slideTo(index);
     }
   };
 
   return (
-    <section id="stack" className="h-screen snap-start bg-black relative overflow-hidden">
-      <div 
-        ref={containerRef}
-        className="h-full w-full overflow-y-auto snap-y snap-mandatory custom-scrollbar scroll-smooth"
-        style={{ overscrollBehaviorY: 'auto' }}
+    <section id="stack" className="h-screen bg-black relative overflow-hidden">
+      <Swiper
+        direction="vertical"
+        nested={true}
+        modules={[Mousewheel]}
+        mousewheel={{ 
+          releaseOnEdges: true,
+          sensitivity: 2,
+          thresholdDelta: 20
+        }}
+        speed={600}
+        onSwiper={setSwiperInstance}
+        onSlideChange={handleSlideChange}
+        className="h-full w-full"
       >
         {pages.map((pageTechs, pageIdx) => (
-          <div key={pageIdx} className="h-full w-full snap-start flex flex-col items-center justify-center p-6 md:p-20 relative">
-            {pageIdx === 0 && (
-              <h2 className="text-3xl md:text-5xl lg:text-7xl mb-12 md:mb-16 font-display uppercase italic text-center leading-tight flex-shrink-0 z-20">
-                <span className="text-white">{t.stack.title.split(' ')[0]}</span>{' '}
-                <span className="text-neon-green text-glow-neon">
-                  {t.stack.title.split(' ').length > 1 ? t.stack.title.split(' ').slice(1).join(' ') : t.stack.title}
-                </span>
-              </h2>
-            )}
+          <SwiperSlide key={pageIdx}>
+            <div className="h-full w-full flex flex-col items-center justify-center p-6 md:p-20 relative">
+              {pageIdx === 0 && (
+                <h2 className="text-3xl md:text-5xl lg:text-7xl mb-12 md:mb-16 font-display uppercase italic text-center leading-tight flex-shrink-0 z-20">
+                  <span className="text-white">{t.stack.title.split(' ')[0]}</span>{' '}
+                  <span className="text-neon-green text-glow-neon">
+                    {t.stack.title.split(' ').length > 1 ? t.stack.title.split(' ').slice(1).join(' ') : t.stack.title}
+                  </span>
+                </h2>
+              )}
 
-            <div className="container mx-auto px-6 max-w-6xl w-full z-20">
-               <motion.div 
-                className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-8"
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
-                {pageTechs.map((tech) => (
-                  <motion.a
-                    key={tech.name}
-                    href={tech.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    variants={itemVariants}
-                    className="group relative h-24 md:h-40 lg:h-44"
-                  >
-                    <TiltCard className="p-4 md:p-8 border border-white/5 rounded-3xl bg-white/[0.03] hover:border-neon-green/30 transition-all duration-500 h-full flex flex-col items-center justify-center gap-2 md:gap-6 glass-card-hover overflow-hidden">
-                      <div className="w-10 h-10 md:w-16 md:h-16 relative z-10 transition-transform duration-500 group-hover:scale-110">
-                        <img src={tech.icon} alt={tech.name} className="w-full h-full object-contain filter group-hover:drop-shadow-[0_0_12px_rgba(0,233,100,0.6)]" />
-                      </div>
-                      <span className="text-[10px] md:text-xs font-display uppercase tracking-widest text-gray-500 group-hover:text-white transition-colors text-center font-bold">
-                        {tech.name}
-                      </span>
-                    </TiltCard>
-                  </motion.a>
-                ))}
-              </motion.div>
+              <div className="container mx-auto px-6 max-w-6xl w-full z-20">
+                 <motion.div 
+                  className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-8"
+                  variants={containerVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                >
+                  {pageTechs.map((tech) => (
+                    <motion.a
+                      key={tech.name}
+                      href={tech.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variants={itemVariants}
+                      className="group relative h-24 md:h-40 lg:h-44"
+                    >
+                      <TiltCard className="p-4 md:p-8 border border-white/5 rounded-3xl bg-white/[0.03] hover:border-neon-green/30 transition-all duration-500 h-full flex flex-col items-center justify-center gap-2 md:gap-6 glass-card-hover overflow-hidden">
+                        <div className="w-10 h-10 md:w-16 md:h-16 relative z-10 transition-transform duration-500 group-hover:scale-110">
+                          <img src={tech.icon} alt={tech.name} className="w-full h-full object-contain filter group-hover:drop-shadow-[0_0_12px_rgba(0,233,100,0.6)]" />
+                        </div>
+                        <span className="text-[10px] md:text-xs font-display uppercase tracking-widest text-gray-500 group-hover:text-white transition-colors text-center font-bold">
+                          {tech.name}
+                        </span>
+                      </TiltCard>
+                    </motion.a>
+                  ))}
+                </motion.div>
+              </div>
             </div>
-          </div>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
 
       {/* Internal Pagination Bullets */}
       <div className="absolute right-10 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-4">
