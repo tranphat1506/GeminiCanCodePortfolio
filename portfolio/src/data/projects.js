@@ -88,15 +88,26 @@ export const projects = [
 
 export const education = [
   {
+    school: 'Sen Viet Co., Ltd',
+    degree: 'Full-Stack Developer Intern',
+    major: 'IT Asset Management System',
+    period: 'Sep, 2025 - Nov, 2025',
+    gpa: null,
+    achievements: [
+      'Developed an IT Asset Management System using Node.js, React, and MongoDB.',
+      'Built RESTful APIs and responsive UI for asset tracking and maintenance workflows.',
+      'Implemented JWT authentication and automated scheduling features.',
+      'Wrote tests and used Docker for consistent development and deployment.'
+    ]
+  },
+  {
     school: 'Hong Bang International University',
-    degree: 'Bachelor of Computer Science',
-    period: 'Sep 2022 - Apr 2026',
+    degree: 'BACHELOR OF COMPUTER SCIENCE',
     major: 'Artificial Intelligence & Software Development',
+    period: 'Sep, 2022 - Apr, 2026',
     gpa: '2.8/4.0',
     achievements: [
-      '1st Prize - HIU Startup Competition 2024',
-      'Finalist - BUIDL Hackathon 2025',
-      'Outstanding Student in Software Engineering'
+      'Relevant Coursework (Points): Web Application Development (9.4), Introduction to Programming (9.8), Advanced Artificial Intelligence (9.3), Graph Theory (9.1), Introduction to Artificial Intelligence (8.4), Information Security (8.1), Programming Techniques (8.0), Python Programming (8.0)'
     ]
   }
 ];
