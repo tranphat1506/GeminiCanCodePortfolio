@@ -5,68 +5,41 @@ A sophisticated, high-performance personal portfolio built with **React**, **Vit
 ## ✨ Key Features
 
 - **🎞️ Cinematic Nested Snapping**: A unique "Frame-by-Frame" scrolling experience that guides users through detailed sub-pages (Projects, Skills, Experience) within the main navigation flow.
-- **🌍 Multilingual Support**: Seamless transition between **English** and **Vietnamese** with centralized state management.
-- **🎨 Premium UI/UX**:
-    - High-end Glassmorphism effects.
-    - Custom **ProjectImage** component with robust CSS-fallback logic.
-    - Sleeker **Navbar** with intelligent scroll-intent detection (Wheel/Touch).
-    - Consistent branding using the **Gilroy** font family.
-- **🚀 Advanced Animations**: Smooth entrance animations, cycling text, floating elements, and interactive tilt cards powered by Framer Motion.
-- **📱 Responsive & Optimized**: Fully responsive layout optimized for all devices, from mobile to ultra-wide displays.
+- **🌍 Multilingual Support**: Seamless transition between **English** and **Vietnamese**.
+- **🎨 Premium UI/UX**: High-end Glassmorphism, Gilroy font, and a robust cinematic ProjectCard system.
+- **🚀 Advanced Animations**: Powered by Framer Motion.
 
 ## 🛠️ Tech Stack
 
-- **Framework**: [React 19](https://react.dev/)
-- **Build Tool**: [Vite](https://vitejs.dev/)
-- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
-- **Animations**: [Framer Motion](https://www.framer.com/motion/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **State Management**: React Context API (for Localization)
+- **React 19**, **Vite**, **Tailwind CSS 4**, **Framer Motion**, **Lucide React**.
+
+## 🚀 Getting Started & Deployment
+
+This project is configured for **GitHub Pages** deployment directly from the root directory.
+
+### Local Development
+From the **root** folder:
+```bash
+npm run dev
+```
+
+### Deployment to GitHub Pages
+1. **Build and Prepare**:
+   From the **root** folder, run:
+   ```bash
+   npm run deploy
+   ```
+   This will build the project and place the production files (`index.html`, `assets/`, etc.) directly into the root directory.
+
+2. **GitHub Settings**:
+   - Go to your Repository **Settings** > **Pages**.
+   - Under **Build and deployment** > **Branch**, select `main` (or your primary branch) and folder `/ (root)`.
+   - Click **Save**.
 
 ## 📁 Project Structure
 
-```text
-src/
-├── components/         # UI sections (Hero, Work, Experience, etc.)
-│   └── ui/             # Reusable UI primitives (ProjectImage, TiltCard)
-├── context/            # Global Context (LanguageProvider)
-├── data/               # Project and personal data (projects.js)
-├── utils/              # Animations, translations, and helper functions
-├── App.jsx             # Main application orchestrator
-└── index.css           # Global styles and scroll-snap configurations
-```
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) (Latest LTS recommended)
-- [npm](https://www.npmjs.com/)
-
-### Installation
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/tranphat1506/PersonalPortfolio.git
-   cd PersonalPortfolio/portfolio
-   ```
-
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server**:
-   ```bash
-   npm run dev
-   ```
-
-### Building for Production
-
-To create an optimized production build:
-```bash
-npm run build
-```
+- `portfolio/`: Source code and development environment.
+- `index.html`, `assets/`, etc. (after build): Production files for GitHub Pages.
 
 ## 📄 License
 

@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# IDE/System
+.DS_Store
+
+# Projects
+portfolio/node_modules/
+portfolio/dist/
+portfolio/.env
+portfolio/tsconfig.tsbuildinfo
+
+# Note: Production files (index.html, assets/) in the root 
+# are deliberately NOT ignored so they can be deployed to GitHub Pages.

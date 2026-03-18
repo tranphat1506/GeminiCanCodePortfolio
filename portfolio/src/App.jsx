@@ -20,7 +20,7 @@ import { LanguageProvider, useLanguage } from './context/LanguageContext';
 
 function App() {
   const { t } = useLanguage();
-  
+
   return (
     <div className="bg-black text-white selection:bg-neon-green selection:text-black">
       <Navbar />

@@ -12,7 +12,7 @@ const Hero = () => {
     <section id="hero" className="h-screen snap-start flex items-center justify-center relative overflow-hidden bg-black md:pb-20" style={{ contain: 'paint' }}>
       <FloatingElement className="top-1/4 left-1/4 w-48 h-48 md:w-96 md:h-96 bg-neon-green/10" delay={0} />
       <FloatingElement className="bottom-1/4 right-1/4 w-64 h-64 md:w-[500px] md:h-[500px] bg-blue-500/5" delay={2} />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-5xl">
           <motion.div

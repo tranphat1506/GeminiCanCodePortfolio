@@ -1,150 +1,150 @@
 // Portfolio Projects Data - Refined with localized descriptions and bilingual content
 export const projects = [
-  {
-    id: 'kbms',
-    title: 'Knowledge Base Management System (KBMS)',
-    period: 'Sep 2025 - Apr 2026',
-    role: 'Fullstack Developer / AI Architect',
-    roleVi: 'Phát triển Fullstack / Kiến trúc sư AI',
-    type: 'Capstone Project',
-    typeVi: 'Đồ án tốt nghiệp',
-    strength: 'Backend / AI / System Engineering',
-    strengthVi: 'Backend / AI / Kỹ thuật hệ thống',
-    stack: ['C#', '.NET 8', 'TCP/IP', 'B+ Tree', 'WAL', 'COKB'],
-    tags: ['Backend', 'AI', 'Database'],
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=2000&auto=format&fit=crop',
-    description: 'A sophisticated database management system designed to handle complex data relationships and rule-based logic with high efficiency.',
-    descriptionVi: 'Hệ quản trị cơ sở tri thức hiện đại được thiết kế để xử lý các mối quan hệ dữ liệu phức tạp và logic dựa trên luật với hiệu suất cao.',
-    highlights: [
-      'Engineered a custom SQL-like query language (KBQL) with a full compiler pipeline (Lexer, Parser, AST).',
-      'Built an inference engine using FClosure matrix algorithms and numerical solvers (Newton-Raphson).',
-      'Implemented a high-performance binary storage layer with B+ Tree indexing and Write-Ahead Logging (WAL).',
-      'Integrated TCP/IP-based RBAC for secure multi-user access and derivation tracing for logic transparency.'
-    ],
-    highlightsVi: [
-      'Xây dựng ngôn ngữ truy vấn giống SQL (KBQL) với quy trình biên dịch hoàn chỉnh (Lexer, Parser, AST).',
-      'Phát triển công cụ suy diễn sử dụng thuật toán ma trận FClosure và các bộ giải số học (Newton-Raphson).',
-      'Triển khai lớp lưu trữ nhị phân hiệu suất cao với chỉ mục B+ Tree và Write-Ahead Logging (WAL).',
-      'Tích hợp RBAC dựa trên TCP/IP để truy cập đa người dùng an toàn và truy vết suy dẫn minh bạch.'
-    ],
-    github: 'https://github.com/tranphat1506/KBMS'
-  },
-  {
-    id: 'anh-gia-tattoo',
-    title: 'Anh Gia Tattoo Web',
-    period: 'Dec 2025 - Jan 2026',
-    role: 'Freelance Full-Stack Developer',
-    roleVi: 'Phát triển Full-Stack tự do',
-    type: 'Commercial Project',
-    typeVi: 'Dự án thương mại',
-    strength: 'Frontend / SEO / Security',
-    strengthVi: 'Frontend / SEO / Bảo mật',
-    stack: ['PHP', 'MySQL', 'JavaScript', 'Google Ads', 'SEO'],
-    tags: ['Frontend', 'SEO', 'Business'],
-    image: 'https://images.unsplash.com/photo-1598371380353-840905e3698b?q=80&w=2000&auto=format&fit=crop',
-    description: 'An SEO-optimized studio website with custom Admin Panel, achieving 100+ daily organic visits within the first month.',
-    descriptionVi: 'Website studio tối ưu SEO với bảng điều khiển tùy chỉnh, đạt hơn 100 lượt truy cập tự nhiên mỗi ngày ngay trong tháng đầu tiên.',
-    highlights: [
-      'Developed an SEO-optimized landing page generating 100+ high-potential leads monthly.',
-      'Built a custom Admin Panel for seamless content updates and automated email notifications.',
-      'Implemented robust anti-spam mechanisms including rate limiting and IP blocking.',
-      'Designed a tracking system using SQL Stored Procedures for daily engagement statistics.'
-    ],
-    highlightsVi: [
-      'Phát triển trang đích tối ưu SEO tạo ra hơn 100 khách hàng tiềm năng mỗi tháng.',
-      'Xây dựng bảng điều khiển quản trị tùy chỉnh để cập nhật nội dung mượt mà và thông báo email tự động.',
-      'Triển khai các cơ chế chống spam mạnh mẽ bao gồm giới hạn tốc độ và chặn IP.',
-      'Thiết kế hệ thống theo dõi sử dụng SQL Stored Procedures cho thống kê tương tác hàng ngày.'
-    ],
-    github: 'https://github.com/tranphat1506/AnhGiaTattoo'
-  },
-  {
-    id: 'it-asset-management',
-    title: 'IT Asset Management System',
-    period: 'Sep 2025 - Nov 2025',
-    role: 'Full-Stack Developer Intern',
-    roleVi: 'Thực tập sinh Phát triển Full-Stack',
-    type: 'Enterprise System',
-    typeVi: 'Hệ thống doanh nghiệp',
-    strength: 'Fullstack / Workflow Automation',
-    strengthVi: 'Fullstack / Tự động hóa quy trình',
-    stack: ['React 19', 'Node.js', 'MongoDB', 'Redis', 'JWT', 'QR Code'],
-    tags: ['React', 'Enterprise', 'Cloud'],
-    image: 'https://images.unsplash.com/photo-1551288049-bbbda5366391?q=80&w=2000&auto=format&fit=crop',
-    description: 'A comprehensive IT asset tracking system for SEN VIET SOFTWARE JOINT STOCK COMPANY with automated maintenance scheduling.',
-    descriptionVi: 'Hệ thống theo dõi tài sản CNTT toàn diện cho CÔNG TY CỔ PHẦN PHẦN MỀM SEN VIỆT với tính năng lập lịch bảo trì tự động.',
-    highlights: [
-      'Reduced manual tracking effort by 40% through an automated maintenance scheduling system.',
-      'Engineered a secure authentication layer using JWT with Refresh Tokens and session management via Redis.',
-      'Built a responsive dashboard using React, improving data entry speed by 30%.',
-      'Integrated QR code management and detailed audit trails for every asset change.'
-    ],
-    highlightsVi: [
-      'Giảm 40% công sức theo dõi thủ công thông qua hệ thống lập lịch bảo trì tự động.',
-      'Thiết kế lớp xác thực an toàn sử dụng JWT với Refresh Tokens và quản lý phiên qua Redis.',
-      'Xây dựng bảng điều khiển phản hồi nhanh bằng React, cải thiện tốc độ nhập dữ liệu lên 30%.',
-      'Tích hợp quản lý mã QR và nhật ký kiểm tra chi tiết cho mọi thay đổi tài sản.'
-    ],
-    github: 'https://github.com/tranphat1506/IT-ASSET-MANAGEMENT-SYSTEM-2'
-  },
-  {
-    id: 'classtrack',
-    title: 'ClassTrack (CTrack)',
-    period: 'Feb 2026 - Mar 2026',
-    role: 'Lead Backend Developer',
-    roleVi: 'Phát triển Backend chính',
-    type: 'System Component',
-    typeVi: 'Thành phần hệ thống',
-    strength: 'Infra / Conccurency / DevOps',
-    strengthVi: 'Hạ tầng / Đồng thời / DevOps',
-    stack: ['Node.js', 'RabbitMQ', 'PostgreSQL', 'Docker', 'Express'],
-    tags: ['Backend', 'PostgreSQL', 'Infra'],
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2000&auto=format&fit=crop',
-    description: 'A reliable school management system for tracking classroom attendance, built to handle large numbers of students simultaneously.',
-    descriptionVi: 'Hệ thống quản lý trường học tin cậy để theo dõi điểm danh lớp học, được xây dựng để xử lý số lượng lớn sinh viên cùng lúc.',
-    highlights: [
-      'Design a scalable check-in architecture using RabbitMQ for asynchronous processing.',
-      'Achieved ~450 req/sec with 0% data loss under heavy load testing.',
-      'Containerized the entire stack using Docker Compose with optimized resource limits.',
-      'Implemented a Dead Letter Queue (DLQ) for robust error handling of failed check-ins.'
-    ],
-    highlightsVi: [
-      'Thiết kế kiến trúc điểm danh có thể mở rộng sử dụng RabbitMQ để xử lý bất đồng bộ.',
-      'Đạt ~450 yêu cầu/giây với 0% mất dữ liệu trong thử nghiệm tải nặng.',
-      'Container hóa toàn bộ stack sử dụng Docker Compose với giới hạn tài nguyên tối ưu.',
-      'Triển khai Dead Letter Queue (DLQ) để xử lý lỗi mạnh mẽ cho các lượt điểm danh thất bại.'
-    ],
-    github: 'https://github.com/tranphat1506/ClassTrack'
-  },
-  {
-    id: 'natanu',
-    title: 'Natanu - Healthy Snack',
-    period: 'Jun 2024 - Oct 2024',
-    role: 'Frontend Developer',
-    roleVi: 'Phát triển Frontend',
-    type: 'Startup Project',
-    typeVi: 'Dự án Startup',
-    strength: 'UI/UX / Branding',
-    strengthVi: 'UI/UX / Thương hiệu',
-    stack: ['React', 'TypeScript', 'Vite', 'CSS3'],
-    tags: ['Startup', 'React', 'Branding'],
-    image: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?q=80&w=2000&auto=format&fit=crop',
-    description: 'The digital storefront for a healthy snack startup that won 1st Prize at the HIU Startup Competition.',
-    descriptionVi: 'Cửa hàng trực tuyến cho startup đồ ăn nhẹ tốt cho sức khỏe, đã giành giải Nhất tại Cuộc thi Startup HIU.',
-    highlights: [
-      'Developed a modern, visual-heavy e-commerce landing page with localized data handling.',
-      'Created interactive product displays and team sections to build brand narrative.',
-      'Contributed to the overall technological strategy that secured a first-prize finish.',
-      'Optimized for mobile-first experience to cater to young, health-conscious consumers.'
-    ],
-    highlightsVi: [
-      'Phát triển trang đích thương mại điện tử hiện đại, tập trung hình ảnh với xử lý dữ liệu bản địa hóa.',
-      'Tạo các màn hình hiển thị sản phẩm tương tác và phần giới thiệu nhóm để xây dựng câu chuyện thương hiệu.',
-      'Đóng góp vào chiến lược công nghệ tổng thể giúp đạt vị trí quán quân.',
-      'Tối ưu hóa trải nghiệm ưu tiên di động để phục vụ người tiêu dùng trẻ coi trọng sức khỏe.'
-    ],
-    github: 'https://github.com/tranphat1506/natanu-react'
-  }
+  // {
+  //   id: 'kbms',
+  //   title: 'Knowledge Base Management System (KBMS)',
+  //   period: 'Sep 2025 - Apr 2026',
+  //   role: 'Fullstack Developer / AI Architect',
+  //   roleVi: 'Phát triển Fullstack / Kiến trúc sư AI',
+  //   type: 'Capstone Project',
+  //   typeVi: 'Đồ án tốt nghiệp',
+  //   strength: 'Backend / AI / System Engineering',
+  //   strengthVi: 'Backend / AI / Kỹ thuật hệ thống',
+  //   stack: ['C#', '.NET 8', 'TCP/IP', 'B+ Tree', 'WAL', 'COKB'],
+  //   tags: ['Backend', 'AI', 'Database'],
+  //   image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=2000&auto=format&fit=crop',
+  //   description: 'A sophisticated database management system designed to handle complex data relationships and rule-based logic with high efficiency.',
+  //   descriptionVi: 'Hệ quản trị cơ sở tri thức hiện đại được thiết kế để xử lý các mối quan hệ dữ liệu phức tạp và logic dựa trên luật với hiệu suất cao.',
+  //   highlights: [
+  //     'Engineered a custom SQL-like query language (KBQL) with a full compiler pipeline (Lexer, Parser, AST).',
+  //     'Built an inference engine using FClosure matrix algorithms and numerical solvers (Newton-Raphson).',
+  //     'Implemented a high-performance binary storage layer with B+ Tree indexing and Write-Ahead Logging (WAL).',
+  //     'Integrated TCP/IP-based RBAC for secure multi-user access and derivation tracing for logic transparency.'
+  //   ],
+  //   highlightsVi: [
+  //     'Xây dựng ngôn ngữ truy vấn giống SQL (KBQL) với quy trình biên dịch hoàn chỉnh (Lexer, Parser, AST).',
+  //     'Phát triển công cụ suy diễn sử dụng thuật toán ma trận FClosure và các bộ giải số học (Newton-Raphson).',
+  //     'Triển khai lớp lưu trữ nhị phân hiệu suất cao với chỉ mục B+ Tree và Write-Ahead Logging (WAL).',
+  //     'Tích hợp RBAC dựa trên TCP/IP để truy cập đa người dùng an toàn và truy vết suy dẫn minh bạch.'
+  //   ],
+  //   github: 'https://github.com/tranphat1506/KBMS'
+  // },
+  // {
+  //   id: 'anh-gia-tattoo',
+  //   title: 'Anh Gia Tattoo Web',
+  //   period: 'Dec 2025 - Jan 2026',
+  //   role: 'Freelance Full-Stack Developer',
+  //   roleVi: 'Phát triển Full-Stack tự do',
+  //   type: 'Commercial Project',
+  //   typeVi: 'Dự án thương mại',
+  //   strength: 'Frontend / SEO / Security',
+  //   strengthVi: 'Frontend / SEO / Bảo mật',
+  //   stack: ['PHP', 'MySQL', 'JavaScript', 'Google Ads', 'SEO'],
+  //   tags: ['Frontend', 'SEO', 'Business'],
+  //   image: 'https://images.unsplash.com/photo-1598371380353-840905e3698b?q=80&w=2000&auto=format&fit=crop',
+  //   description: 'An SEO-optimized studio website with custom Admin Panel, achieving 100+ daily organic visits within the first month.',
+  //   descriptionVi: 'Website studio tối ưu SEO với bảng điều khiển tùy chỉnh, đạt hơn 100 lượt truy cập tự nhiên mỗi ngày ngay trong tháng đầu tiên.',
+  //   highlights: [
+  //     'Developed an SEO-optimized landing page generating 100+ high-potential leads monthly.',
+  //     'Built a custom Admin Panel for seamless content updates and automated email notifications.',
+  //     'Implemented robust anti-spam mechanisms including rate limiting and IP blocking.',
+  //     'Designed a tracking system using SQL Stored Procedures for daily engagement statistics.'
+  //   ],
+  //   highlightsVi: [
+  //     'Phát triển trang đích tối ưu SEO tạo ra hơn 100 khách hàng tiềm năng mỗi tháng.',
+  //     'Xây dựng bảng điều khiển quản trị tùy chỉnh để cập nhật nội dung mượt mà và thông báo email tự động.',
+  //     'Triển khai các cơ chế chống spam mạnh mẽ bao gồm giới hạn tốc độ và chặn IP.',
+  //     'Thiết kế hệ thống theo dõi sử dụng SQL Stored Procedures cho thống kê tương tác hàng ngày.'
+  //   ],
+  //   github: 'https://github.com/tranphat1506/AnhGiaTattoo'
+  // },
+  // {
+  //   id: 'it-asset-management',
+  //   title: 'IT Asset Management System',
+  //   period: 'Sep 2025 - Nov 2025',
+  //   role: 'Full-Stack Developer Intern',
+  //   roleVi: 'Thực tập sinh Phát triển Full-Stack',
+  //   type: 'Enterprise System',
+  //   typeVi: 'Hệ thống doanh nghiệp',
+  //   strength: 'Fullstack / Workflow Automation',
+  //   strengthVi: 'Fullstack / Tự động hóa quy trình',
+  //   stack: ['React 19', 'Node.js', 'MongoDB', 'Redis', 'JWT', 'QR Code'],
+  //   tags: ['React', 'Enterprise', 'Cloud'],
+  //   image: 'https://images.unsplash.com/photo-1551288049-bbbda5366391?q=80&w=2000&auto=format&fit=crop',
+  //   description: 'A comprehensive IT asset tracking system for SEN VIET SOFTWARE JOINT STOCK COMPANY with automated maintenance scheduling.',
+  //   descriptionVi: 'Hệ thống theo dõi tài sản CNTT toàn diện cho CÔNG TY CỔ PHẦN PHẦN MỀM SEN VIỆT với tính năng lập lịch bảo trì tự động.',
+  //   highlights: [
+  //     'Reduced manual tracking effort by 40% through an automated maintenance scheduling system.',
+  //     'Engineered a secure authentication layer using JWT with Refresh Tokens and session management via Redis.',
+  //     'Built a responsive dashboard using React, improving data entry speed by 30%.',
+  //     'Integrated QR code management and detailed audit trails for every asset change.'
+  //   ],
+  //   highlightsVi: [
+  //     'Giảm 40% công sức theo dõi thủ công thông qua hệ thống lập lịch bảo trì tự động.',
+  //     'Thiết kế lớp xác thực an toàn sử dụng JWT với Refresh Tokens và quản lý phiên qua Redis.',
+  //     'Xây dựng bảng điều khiển phản hồi nhanh bằng React, cải thiện tốc độ nhập dữ liệu lên 30%.',
+  //     'Tích hợp quản lý mã QR và nhật ký kiểm tra chi tiết cho mọi thay đổi tài sản.'
+  //   ],
+  //   github: 'https://github.com/tranphat1506/IT-ASSET-MANAGEMENT-SYSTEM-2'
+  // },
+  // {
+  //   id: 'classtrack',
+  //   title: 'ClassTrack (CTrack)',
+  //   period: 'Feb 2026 - Mar 2026',
+  //   role: 'Lead Backend Developer',
+  //   roleVi: 'Phát triển Backend chính',
+  //   type: 'System Component',
+  //   typeVi: 'Thành phần hệ thống',
+  //   strength: 'Infra / Conccurency / DevOps',
+  //   strengthVi: 'Hạ tầng / Đồng thời / DevOps',
+  //   stack: ['Node.js', 'RabbitMQ', 'PostgreSQL', 'Docker', 'Express'],
+  //   tags: ['Backend', 'PostgreSQL', 'Infra'],
+  //   image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2000&auto=format&fit=crop',
+  //   description: 'A reliable school management system for tracking classroom attendance, built to handle large numbers of students simultaneously.',
+  //   descriptionVi: 'Hệ thống quản lý trường học tin cậy để theo dõi điểm danh lớp học, được xây dựng để xử lý số lượng lớn sinh viên cùng lúc.',
+  //   highlights: [
+  //     'Design a scalable check-in architecture using RabbitMQ for asynchronous processing.',
+  //     'Achieved ~450 req/sec with 0% data loss under heavy load testing.',
+  //     'Containerized the entire stack using Docker Compose with optimized resource limits.',
+  //     'Implemented a Dead Letter Queue (DLQ) for robust error handling of failed check-ins.'
+  //   ],
+  //   highlightsVi: [
+  //     'Thiết kế kiến trúc điểm danh có thể mở rộng sử dụng RabbitMQ để xử lý bất đồng bộ.',
+  //     'Đạt ~450 yêu cầu/giây với 0% mất dữ liệu trong thử nghiệm tải nặng.',
+  //     'Container hóa toàn bộ stack sử dụng Docker Compose với giới hạn tài nguyên tối ưu.',
+  //     'Triển khai Dead Letter Queue (DLQ) để xử lý lỗi mạnh mẽ cho các lượt điểm danh thất bại.'
+  //   ],
+  //   github: 'https://github.com/tranphat1506/ClassTrack'
+  // },
+  // {
+  //   id: 'natanu',
+  //   title: 'Natanu - Healthy Snack',
+  //   period: 'Jun 2024 - Oct 2024',
+  //   role: 'Frontend Developer',
+  //   roleVi: 'Phát triển Frontend',
+  //   type: 'Startup Project',
+  //   typeVi: 'Dự án Startup',
+  //   strength: 'UI/UX / Branding',
+  //   strengthVi: 'UI/UX / Thương hiệu',
+  //   stack: ['React', 'TypeScript', 'Vite', 'CSS3'],
+  //   tags: ['Startup', 'React', 'Branding'],
+  //   image: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?q=80&w=2000&auto=format&fit=crop',
+  //   description: 'The digital storefront for a healthy snack startup that won 1st Prize at the HIU Startup Competition.',
+  //   descriptionVi: 'Cửa hàng trực tuyến cho startup đồ ăn nhẹ tốt cho sức khỏe, đã giành giải Nhất tại Cuộc thi Startup HIU.',
+  //   highlights: [
+  //     'Developed a modern, visual-heavy e-commerce landing page with localized data handling.',
+  //     'Created interactive product displays and team sections to build brand narrative.',
+  //     'Contributed to the overall technological strategy that secured a first-prize finish.',
+  //     'Optimized for mobile-first experience to cater to young, health-conscious consumers.'
+  //   ],
+  //   highlightsVi: [
+  //     'Phát triển trang đích thương mại điện tử hiện đại, tập trung hình ảnh với xử lý dữ liệu bản địa hóa.',
+  //     'Tạo các màn hình hiển thị sản phẩm tương tác và phần giới thiệu nhóm để xây dựng câu chuyện thương hiệu.',
+  //     'Đóng góp vào chiến lược công nghệ tổng thể giúp đạt vị trí quán quân.',
+  //     'Tối ưu hóa trải nghiệm ưu tiên di động để phục vụ người tiêu dùng trẻ coi trọng sức khỏe.'
+  //   ],
+  //   github: 'https://github.com/tranphat1506/natanu-react'
+  // }
 ];
 
 export const education = [
